@@ -37,9 +37,9 @@ class Breakfast_TEC_Show_Attachments
 	{
 		$post_id = empty( $event_post_id ) ? get_the_ID() : $event_post_id;
 
-		//are we sure this ID belongs to a post?
+		//are we sure this ID belongs to an event post?
 		$post_type = get_post_type( $post_id );
-		if ( Tribe__Events__Main::POSTTYPE != $post_type )
+		if( ! class_exists( 'Tribe__Events__Main' ) || Tribe__Events__Main::POSTTYPE != $post_type )
 		{
 			//it does not
 			return '';
